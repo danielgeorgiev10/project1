@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_*
+*.p12
+*.pfx
+*.crt
+*.csr
+secrets.*
+*.secret
+
+# Python
+__pycache__
+venv
+*.pyc 
+
+# Node.js
+node_modules
+
+# Build artifacts
+dist
+build
+*.egg-info
+
+# Tests
+tests/
+
+# IDE / editor
+.vscode
+.idea
+
+# OS / local files
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
