@@ -24,7 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install flask pytest
+          pip install flask pytest mysql-connector-python
 
       - name: Run Unit Tests
         run: pytest app/test_main.py
