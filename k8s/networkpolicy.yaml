@@ -38,12 +38,7 @@ spec:
   - Egress
   egress:
   - to:
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: kube-system
-      podSelector:
-        matchLabels:
-          k8s-app: kube-dns
+    - namespaceSelector: {}
     ports:
     - protocol: UDP
       port: 53

@@ -27,6 +27,13 @@ spec:
       containers:
       - name: mariadb
         image: mariadb:10.6
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "256Mi"
         env:
         - name: MARIADB_ROOT_PASSWORD
           valueFrom:
