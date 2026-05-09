@@ -40,32 +40,7 @@ def get_db_connection():
         database='fibonacci_db'
     )
 
-def init_db():
-    retries = 10
-    while retries > 0:
-        try:
-            conn = get_db_connection()
-            cursor = conn.cursor()
-            cursor.execute("""
-                CREATE TABLE IF NOT EXISTS results (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    n INT NOT NULL,
-                    val VARCHAR(255),
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                )
-            """)
-            conn.commit()
-            cursor.close()
-            conn.close()
-            print("Database initialized successfully!")
-            return
-        except Exception as e:
-            retries -= 1
-            print(f"DB not ready yet ({retries} retries left)... Error: {e}")
-            time.sleep(3)
-    
-    print("Could not connect to DB after 10 attempts. Exiting.")
-    exit(1)
+
 
 def save_to_db(n, result):
     try:
@@ -97,6 +72,6 @@ def get_fibonacci(n):
     })
 
 if __name__ == "__main__":
-    init_db()
+
     port=int(os.getenv('APP_PORT', 5000))
     app.run(host="0.0.0.0", port=port)
