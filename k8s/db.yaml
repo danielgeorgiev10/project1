@@ -41,7 +41,10 @@ spec:
               name: project-app-secret
               key: DB_PASSWORD
         - name: MARIADB_DATABASE
-          value: "fibonacci_db"
+          valueFrom:
+            configMapKeyRef:
+              name: project-app-config
+              key: DB_NAME
         ports:
         - containerPort: 3306
         volumeMounts:

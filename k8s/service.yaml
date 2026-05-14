@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: project-app-svc
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/health"
+    prometheus.io/port: "5000"
 spec:
   type: NodePort
   selector:
